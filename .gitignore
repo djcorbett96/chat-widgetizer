@@ -6,5 +6,6 @@ dist/
 sites-config/features.json
 *.local
 localData/
+.vscode
 
 .DS_Store
