@@ -165,8 +165,8 @@ export default function Widgetizer({ document }: TemplateProps) {
         <ChatHeadlessProvider config={chatConfig.headless}>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)}>
-              <div className="grid grid-cols-2 grid-rows-4 h-screen">
-                <div className="p-4 flex flex-col justify-between border-b row-span-1 col-span-2 px-10">
+              <div className="grid grid-cols-2 grid-rows-5 h-screen">
+                <div className="p-4 flex flex-col justify-around border-b row-span-1 col-span-2 px-10">
                   <Breadcrumbs />
                   <div className="flex justify-between">
                     <div className="flex flex-col gap-3">
@@ -182,12 +182,12 @@ export default function Widgetizer({ document }: TemplateProps) {
                       Save Configuration
                     </Button>
                   </div>
-                  <div className="flex gap-2 items-center">
+                  {/* <div className="flex gap-2 items-center">
                     <span className="font-semibold">Chatbot:</span>
                     <ChatbotPicker />
-                  </div>
+                  </div> */}
                 </div>
-                <div className="py-4 px-10 row-span-3 col-span- flex flex-col gap-2 overflow-scroll">
+                <div className="py-4 px-10 row-span-4 col-span- flex flex-col gap-2 overflow-scroll">
                   <div className="flex flex-col border rounded-md">
                     <SettingsToggle />
                     {settingsType === 'theme' && <ThemeSettings form />}
