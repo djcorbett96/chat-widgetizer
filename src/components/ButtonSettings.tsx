@@ -7,32 +7,32 @@ import * as z from 'zod';
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel } from './Form';
 import { ChatConfig } from '../types/config';
 
-const PopUpSettings = ({ form }) => {
+const ButtonSettings = ({ form }) => {
   const { chatConfig, setChatConfig } = usePageContext();
 
   return (
     <div className="flex flex-col divide-y">
       <FormField
         control={form.control}
-        name="panelTitle"
+        name="ctaLabel"
         render={({ field }) => (
           <FormItem className="flex justify-between items-center p-6">
             <div>
-              <FormLabel className="text-lg">Panel Title</FormLabel>
-              <FormDescription className="text-sm text-gray-500">Title appearing in panel header.</FormDescription>
+              <FormLabel className="text-lg">CTA Label</FormLabel>
+              <FormDescription className="text-sm text-gray-500">Text to show next to chat button.</FormDescription>
             </div>
             <FormControl>
               <Input
                 type="text"
-                id="panelTitle"
-                placeholder="Add title here"
+                id="ctaLabel"
+                placeholder="Add label here"
                 className="text-md w-1/2"
-                defaultValue={chatConfig.behavior.title}
+                defaultValue={chatConfig.behavior.ctaLabel}
                 value={form.value}
                 onChange={(e) => {
                   setChatConfig((prev: ChatConfig) => ({
                     ...prev,
-                    behavior: { ...prev.behavior, title: e.target.value },
+                    behavior: { ...prev.behavior, ctaLabel: e.target.value },
                   }));
                   field.onChange(e.target.value);
                 }}
@@ -43,13 +43,13 @@ const PopUpSettings = ({ form }) => {
       />
       <FormField
         control={form.control}
-        name="showRestartButton"
+        name="showInitialMessagePopUp"
         render={({ field }) => (
           <FormItem className="flex justify-between items-center p-6">
             <div className="max-w-1/2">
-              <FormLabel className="text-lg">Show Restart Button</FormLabel>
+              <FormLabel className="text-lg">Show Initial Message Pop Up</FormLabel>
               <FormDescription className="text-sm text-gray-500">
-                Adds button in panel header to restart the conversation.
+                Shows a small pop up with the bot's initial message.
               </FormDescription>
             </div>
             <FormControl>
@@ -58,7 +58,7 @@ const PopUpSettings = ({ form }) => {
                 onCheckedChange={(e) => {
                   setChatConfig((prev: ChatConfig) => ({
                     ...prev,
-                    behavior: { ...prev.behavior, showRestartButton: e },
+                    behavior: { ...prev.behavior, showInitialMessagePopUp: e },
                   }));
                   field.onChange(e);
                 }}
@@ -69,13 +69,13 @@ const PopUpSettings = ({ form }) => {
       />
       <FormField
         control={form.control}
-        name="openOnLoad"
+        name="showUnreadNotification"
         render={({ field }) => (
           <FormItem className="flex justify-between items-center p-6">
             <div className="max-w-1/2">
-              <FormLabel className="text-lg">Open On Load</FormLabel>
+              <FormLabel className="text-lg">Show Unread Notification</FormLabel>
               <FormDescription className="text-sm text-gray-500">
-                Chat panel opens automatically when the page loads.
+                Adds notification icon for unread messages.
               </FormDescription>
             </div>
             <FormControl>
@@ -84,33 +84,7 @@ const PopUpSettings = ({ form }) => {
                 onCheckedChange={(e) => {
                   setChatConfig((prev: ChatConfig) => ({
                     ...prev,
-                    behavior: { ...prev.behavior, openOnLoad: e },
-                  }));
-                  field.onChange(e);
-                }}
-              />
-            </FormControl>
-          </FormItem>
-        )}
-      />
-      <FormField
-        control={form.control}
-        name="showFeedbackButtons"
-        render={({ field }) => (
-          <FormItem className="flex justify-between items-center p-6">
-            <div className="max-w-1/2">
-              <FormLabel className="text-lg">Show Feedback Buttons</FormLabel>
-              <FormDescription className="text-sm text-gray-500">
-                Thumbs up/down buttons appear while hovering over a message to provide feedback.
-              </FormDescription>
-            </div>
-            <FormControl>
-              <Switch
-                checked={field.value}
-                onCheckedChange={(e) => {
-                  setChatConfig((prev: ChatConfig) => ({
-                    ...prev,
-                    behavior: { ...prev.behavior, showFeedbackButtons: e },
+                    behavior: { ...prev.behavior, showUnreadNotification: e },
                   }));
                   field.onChange(e);
                 }}
@@ -123,4 +97,4 @@ const PopUpSettings = ({ form }) => {
   );
 };
 
-export default PopUpSettings;
+export default ButtonSettings;

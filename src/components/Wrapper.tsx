@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { cn } from '../utils/cn';
 import Logo from './Logo';
+import { Toaster } from './Toaster';
 
 export interface WrapperProps {
   children: React.ReactNode;
@@ -35,7 +36,7 @@ const Wrapper = ({ children }: WrapperProps) => {
                 >
                   All Widgets
                 </a>
-                <ul className="pl-4">
+                <ul className="pl-4 space-y-2">
                   <li>
                     <a
                       href="#"
@@ -72,6 +73,7 @@ const Wrapper = ({ children }: WrapperProps) => {
       </div>
 
       <main className="pl-72 h-screen">{children}</main>
+      <Toaster />
     </div>
   );
 };

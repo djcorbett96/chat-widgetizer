@@ -2,12 +2,12 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '.
 
 const ChatbotPicker = () => {
   return (
-    <Select defaultValue="lead-gen">
-      <SelectTrigger className="w-[180px]">
+    <Select defaultValue="salesforce-lead-gen">
+      <SelectTrigger className="w-[250px]">
         <SelectValue placeholder="Select Chatbot" />
       </SelectTrigger>
       <SelectContent>
-        <SelectItem value="lead-gen">lead-gen</SelectItem>
+        <SelectItem value="salesforce-lead-gen">salesforce-lead-gen</SelectItem>
         <SelectItem value="support-agent">support-agent</SelectItem>
       </SelectContent>
     </Select>
