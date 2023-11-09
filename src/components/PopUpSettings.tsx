@@ -1,10 +1,7 @@
 import { Input } from './Input';
 import { Switch } from './Switch';
 import { usePageContext } from './utils/usePageContext';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
-import * as z from 'zod';
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel } from './Form';
+import { FormControl, FormDescription, FormField, FormItem, FormLabel } from './Form';
 import { ChatConfig } from '../types/config';
 
 const PopUpSettings = ({ form }) => {
@@ -14,7 +11,7 @@ const PopUpSettings = ({ form }) => {
     <div className="flex flex-col divide-y">
       <FormField
         control={form.control}
-        name="panelTitle"
+        name="title"
         render={({ field }) => (
           <FormItem className="flex justify-between items-center p-6">
             <div>
@@ -24,7 +21,7 @@ const PopUpSettings = ({ form }) => {
             <FormControl>
               <Input
                 type="text"
-                id="panelTitle"
+                id="title"
                 placeholder="Add title here"
                 className="text-md w-1/2"
                 defaultValue={chatConfig.behavior.title}

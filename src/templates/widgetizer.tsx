@@ -40,7 +40,7 @@ const defaultConfig: ChatConfig = {
     apiKey: 'c4958314f662a3ccfaab5a5ad68bd084',
   },
   behavior: {
-    panelTitle: 'Bot Title',
+    title: 'Bot Title',
     showRestartButton: true,
     ctaLabel: '',
     openOnLoad: true,
@@ -66,7 +66,7 @@ export default function Widgetizer({ document }: TemplateProps) {
   const [chatConfig, setChatConfig] = useState<ChatConfig>(defaultConfig);
 
   const FormSchema = z.object({
-    panelTitle: z.string(),
+    title: z.string(),
     showRestartButton: z.boolean(),
     openOnLoad: z.boolean(),
     showFeedbackButtons: z.boolean(),
@@ -89,7 +89,7 @@ export default function Widgetizer({ document }: TemplateProps) {
       ctaLabel: chatConfig.behavior.ctaLabel,
       showInitialMessagePopUp: chatConfig.behavior.showInitialMessagePopUp,
       showUnreadNotification: chatConfig.behavior.showUnreadNotification,
-      panelTitle: chatConfig.behavior.panelTitle,
+      title: chatConfig.behavior.title,
       showRestartButton: chatConfig.behavior.showRestartButton,
       openOnLoad: chatConfig.behavior.openOnLoad,
       showFeedbackButtons: chatConfig.behavior.showFeedbackButtons,
@@ -106,7 +106,7 @@ export default function Widgetizer({ document }: TemplateProps) {
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
     const {
-      panelTitle,
+      title,
       showRestartButton,
       ctaLabel,
       openOnLoad,
@@ -128,7 +128,7 @@ export default function Widgetizer({ document }: TemplateProps) {
       $schema: 'https://schema.yext.com/config/platform/chat/widget/v1',
       headless: { ...defaultConfig.headless },
       behavior: {
-        panelTitle,
+        title,
         showRestartButton,
         ctaLabel,
         openOnLoad,

@@ -4,7 +4,7 @@ export interface ChatConfig {
     botId: string;
   };
   behavior: {
-    panelTitle: string;
+    title: string;
     showRestartButton: boolean;
     ctaLabel: string;
     openOnLoad: boolean;
