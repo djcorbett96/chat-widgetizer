@@ -195,8 +195,8 @@ export default function Widgetizer({ document }: TemplateProps) {
                     {settingsType === 'button' && <ButtonSettings form />}
                   </div>
                 </div>
-                <div className="bg-gray-100 p-12 row-span-4 col-span-1 flex flex-col relative gap-4">
-                  <div className="h-full">
+                <div className="bg-gray-100 p-12 row-span-4 col-span-1 flex flex-col relative gap-4 justify-center">
+                  <div className="h-full max-h-[600px]">
                     {previewType === 'popup' && <Chatbot {...chatConfig} />}
                     {previewType === 'button' && chatConfig.behavior.showInitialMessagePopUp === false && (
                       <ChatbotButton {...chatConfig} />
