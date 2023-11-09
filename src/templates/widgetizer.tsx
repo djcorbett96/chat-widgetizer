@@ -40,7 +40,7 @@ const defaultConfig: ChatConfig = {
     apiKey: 'c4958314f662a3ccfaab5a5ad68bd084',
   },
   behavior: {
-    title: 'Bot Title',
+    panelTitle: 'Bot Title',
     showRestartButton: true,
     ctaLabel: '',
     openOnLoad: true,
@@ -55,6 +55,8 @@ const defaultConfig: ChatConfig = {
     botMessageTextColor: '#0F172A',
     userMessageBackgroundColor: '#4F46E5',
     userMessageTextColor: '#FFFFFF',
+    notificationIconColor: '#d32f2f',
+    ctaLabelColor: '#4F46E5',
   },
 };
 
@@ -74,6 +76,8 @@ export default function Widgetizer({ document }: TemplateProps) {
     botMessageTextColor: z.string(),
     userMessageBackgroundColor: z.string(),
     userMessageTextColor: z.string(),
+    notificationIconColor: z.string(),
+    ctaLabelColor: z.string(),
     ctaLabel: z.string(),
     showInitialMessagePopUp: z.boolean(),
     showUnreadNotification: z.boolean(),
@@ -82,10 +86,10 @@ export default function Widgetizer({ document }: TemplateProps) {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
-      ctaLabel: chatConfig.behavior.title,
+      ctaLabel: chatConfig.behavior.ctaLabel,
       showInitialMessagePopUp: chatConfig.behavior.showInitialMessagePopUp,
       showUnreadNotification: chatConfig.behavior.showUnreadNotification,
-      panelTitle: chatConfig.behavior.title,
+      panelTitle: chatConfig.behavior.panelTitle,
       showRestartButton: chatConfig.behavior.showRestartButton,
       openOnLoad: chatConfig.behavior.openOnLoad,
       showFeedbackButtons: chatConfig.behavior.showFeedbackButtons,
@@ -95,15 +99,59 @@ export default function Widgetizer({ document }: TemplateProps) {
       botMessageTextColor: chatConfig.theme.botMessageTextColor,
       userMessageBackgroundColor: chatConfig.theme.userMessageBackgroundColor,
       userMessageTextColor: chatConfig.theme.userMessageTextColor,
+      notificationIconColor: chatConfig.theme.notificationIconColor,
+      ctaLabelColor: chatConfig.theme.ctaLabelColor,
     },
   });
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
+    const {
+      panelTitle,
+      showRestartButton,
+      ctaLabel,
+      openOnLoad,
+      showInitialMessagePopUp,
+      showUnreadNotification,
+      showFeedbackButtons,
+      panelButtonColor,
+      panelHeaderTextColor,
+      botMessageBackgroundColor,
+      botMessageTextColor,
+      userMessageBackgroundColor,
+      userMessageTextColor,
+      notificationIconColor,
+      ctaLabelColor,
+    } = data;
+    const widgetConfig = {
+      id: 'marketingBot',
+      name: 'Marketing Bot',
+      $schema: 'https://schema.yext.com/config/platform/chat/widget/v1',
+      headless: { ...defaultConfig.headless },
+      behavior: {
+        panelTitle,
+        showRestartButton,
+        ctaLabel,
+        openOnLoad,
+        showInitialMessagePopUp,
+        showUnreadNotification,
+        showFeedbackButtons,
+      },
+      theme: {
+        panelButtonColor,
+        panelHeaderTextColor,
+        botMessageBackgroundColor,
+        botMessageTextColor,
+        userMessageBackgroundColor,
+        userMessageTextColor,
+        notificationIconColor,
+        ctaLabelColor,
+      },
+    };
     toast({
       title: 'Your widget configuration:',
       description: (
         <pre className="rounded-md bg-slate-950 p-4">
-          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
+          <code className="text-white">{JSON.stringify(widgetConfig, null, 2)}</code>
         </pre>
       ),
     });

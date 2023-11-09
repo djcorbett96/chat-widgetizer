@@ -1,0 +1,26 @@
+{
+  "$id": "marketingChatWidget",
+  "name": "Marketing Bot",
+  "$schema": "https://schema.yext.com/config/platform/chat/widget/v1",
+  "headless": {
+    "apiKey": "12345",
+    "botId": "salesforce-lead-gen"
+  },
+  "behavior": {
+    "title": "My Title",
+    "showRestartButton": true,
+    "ctaLabel": "",
+    "openOnLoad": false,
+    "showInitialMessagePopUp": false,
+    "showUnreadNotification": true,
+    "showFeedbackButtons": true
+  },
+  "theme": {
+    "panelButtonColor": "#value",
+    "panelHeaderTextColor": "#value",
+    "botMessageBackgroundColor": "#value",
+    "botMessageTextColor": "#value",
+    "userMessageBackgroundColor": "#value",
+    "userMessageTextColor": "#value"
+  }
+}

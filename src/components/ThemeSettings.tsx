@@ -1,10 +1,6 @@
 import { Input } from './Input';
-import { Switch } from './Switch';
 import { usePageContext } from './utils/usePageContext';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
-import * as z from 'zod';
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel } from './Form';
+import { FormControl, FormDescription, FormField, FormItem, FormLabel } from './Form';
 import { ChatConfig } from '../types/config';
 import { styleUpdater } from '../utils/styleUpdater';
 
@@ -15,7 +11,7 @@ const ThemeSettings = ({ form }) => {
     <div className="flex flex-col divide-y">
       <FormField
         control={form.control}
-        name="panelHeaderColor"
+        name="panelButtonColor"
         render={({ field }) => (
           <FormItem className="flex justify-between items-center p-6">
             <div className="w-2/3">
@@ -186,6 +182,66 @@ const ThemeSettings = ({ form }) => {
                     theme: { ...prev.theme, userMessageTextColor: e.target.value },
                   }));
                   styleUpdater('--userMessageTextColor', e.target.value);
+                  field.onChange(e.target.value);
+                }}
+              />
+            </FormControl>
+          </FormItem>
+        )}
+      />
+      <FormField
+        control={form.control}
+        name="notificationIconColor"
+        render={({ field }) => (
+          <FormItem className="flex justify-between items-center p-6">
+            <div className="w-2/3">
+              <FormLabel className="text-lg">Notification Icon Color</FormLabel>
+              <FormDescription className="text-sm text-gray-500">
+                Adjust the background color of the unread notification icon.
+              </FormDescription>
+            </div>
+            <FormControl>
+              <Input
+                type="color"
+                id="notificationIconColor"
+                className="text-md w-[100px] h-[50px]"
+                defaultValue={chatConfig.theme.notificationIconColor}
+                onChange={(e) => {
+                  setChatConfig((prev: ChatConfig) => ({
+                    ...prev,
+                    theme: { ...prev.theme, notificationIconColor: e.target.value },
+                  }));
+                  styleUpdater('--notificationIconColor', e.target.value);
+                  field.onChange(e.target.value);
+                }}
+              />
+            </FormControl>
+          </FormItem>
+        )}
+      />
+      <FormField
+        control={form.control}
+        name="ctaLabelColor"
+        render={({ field }) => (
+          <FormItem className="flex justify-between items-center p-6">
+            <div className="w-2/3">
+              <FormLabel className="text-lg">CTA Label Color</FormLabel>
+              <FormDescription className="text-sm text-gray-500">
+                Adjust the text color of the button CTA label.
+              </FormDescription>
+            </div>
+            <FormControl>
+              <Input
+                type="color"
+                id="ctaLabelColor"
+                className="text-md w-[100px] h-[50px]"
+                defaultValue={chatConfig.theme.ctaLabelColor}
+                onChange={(e) => {
+                  setChatConfig((prev: ChatConfig) => ({
+                    ...prev,
+                    theme: { ...prev.theme, ctaLabelColor: e.target.value },
+                  }));
+                  styleUpdater('--ctaLabelColor', e.target.value);
                   field.onChange(e.target.value);
                 }}
               />

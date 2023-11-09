@@ -10,6 +10,8 @@
     --userMessageBackgroundColor: #4F46E5;
     --userMessageTextColor: #FFFFFF;
     --buttonBackgroundColor: #4F46E5;
+    --notificationIconColor: #d32f2f;
+    --ctaLabelColor: #4F46E5;
 }
 
 .yext-chat-header__container {
@@ -42,4 +44,12 @@
 
 .yext-chat-pop-up__button-icon {
     color: var(--panelButtonColor);
+}
+
+.yext-chat-pop-up__notification {
+    background:none var(--notificationIconColor);
+}
+
+.yext-chat-pop-up__cta-label {
+    color: var(--ctaLabelColor);
 }

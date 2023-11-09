@@ -4,7 +4,7 @@ export interface ChatConfig {
     botId: string;
   };
   behavior: {
-    title: string;
+    panelTitle: string;
     showRestartButton: boolean;
     ctaLabel: string;
     openOnLoad: boolean;
@@ -19,5 +19,7 @@ export interface ChatConfig {
     botMessageTextColor: string;
     userMessageBackgroundColor: string;
     userMessageTextColor: string;
+    notificationIconColor: string;
+    ctaLabelColor: string;
   };
 }
