@@ -8,7 +8,6 @@
     "outDir": "./dist",
     "module": "esnext",
     "allowSyntheticDefaultImports": true,
-    "baseUrl": ".",
   },
   "include": ["src"]
 }
