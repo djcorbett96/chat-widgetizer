@@ -6,7 +6,7 @@ const Chatbot = (props: ChatConfig) => {
     <ChatPopUp
       {...props.behavior}
       customCssClasses={{
-        container: 'h-full flex justify-center',
+        container: 'h-full max-h-[600px] flex justify-center',
         panel: 'static h-full',
         panel__hidden: 'hidden',
         closedPopupContainer: 'static justify-center h-full',
