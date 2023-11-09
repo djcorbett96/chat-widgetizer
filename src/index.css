@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-    --panelHeaderColor: #4F46E5;
+    --panelButtonColor: #4F46E5;
     --panelHeaderTextColor: #FFFFFF;
     --botMessageBackgroundColor: #f1f5f9;
     --botMessageTextColor: #0F172A;
@@ -13,7 +13,7 @@
 }
 
 .yext-chat-header__container {
-    background: none var(--panelHeaderColor);
+    background: none var(--panelButtonColor);
 }
 
 .yext-chat-header__restart-button-icon, .yext-chat-header__close-button-icon, .yext-chat-header__title {
@@ -37,5 +37,9 @@
 }
 
 .yext-chat-pop-up__button {
-    background: none var(--buttonBackgroundColor);
+    background: none var(--panelButtonColor);
+}
+
+.yext-chat-pop-up__button-icon {
+    color: var(--panelButtonColor);
 }

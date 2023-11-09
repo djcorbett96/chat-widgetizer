@@ -27,15 +27,15 @@ const ThemeSettings = ({ form }) => {
             <FormControl>
               <Input
                 type="color"
-                id="panelHeaderColor"
+                id="panelButtonColor"
                 className="text-md w-[100px] h-[50px]"
-                defaultValue={chatConfig.theme.panelHeaderColor}
+                defaultValue={chatConfig.theme.panelButtonColor}
                 onChange={(e) => {
                   setChatConfig((prev: ChatConfig) => ({
                     ...prev,
-                    theme: { ...prev.theme, panelHeaderColor: e.target.value },
+                    theme: { ...prev.theme, panelButtonColor: e.target.value },
                   }));
-                  styleUpdater('--panelHeaderColor', e.target.value);
+                  styleUpdater('--panelButtonColor', e.target.value);
                   field.onChange(e.target.value);
                 }}
               />

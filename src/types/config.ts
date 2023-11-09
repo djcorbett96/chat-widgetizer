@@ -13,7 +13,7 @@ export interface ChatConfig {
     showFeedbackButtons: boolean;
   };
   theme: {
-    panelHeaderColor: string;
+    panelButtonColor: string;
     panelHeaderTextColor: string;
     botMessageBackgroundColor: string;
     botMessageTextColor: string;
