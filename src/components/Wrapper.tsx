@@ -22,7 +22,21 @@ const Wrapper = ({ children }: WrapperProps) => {
             <h1 className="text-white text-lg font-semibold">Chat Visual Editor</h1>
           </div>
           <nav className="flex flex-1 flex-col">
-            <ul role="list" className="flex flex-1 flex-col gap-y-7">
+            <ul role="list" className="flex flex-1 flex-col">
+              <li className="flex flex-col gap-2">
+                <a
+                  href="#"
+                  className={cn(
+                    selectedNavItem === 'Bots'
+                      ? 'bg-gray-800 text-white'
+                      : 'text-gray-400 hover:text-white hover:bg-gray-800',
+                    'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
+                  )}
+                  onClick={() => setSelectedNavItem('Bots')}
+                >
+                  All Chatbots
+                </a>
+              </li>
               <li className="flex flex-col gap-2">
                 <a
                   href="#"
