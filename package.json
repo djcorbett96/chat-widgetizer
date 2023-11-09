@@ -1,8 +1,8 @@
 {
-  "name": "blog-react-studio-demo",
+  "name": "chat-widgetizer-prototype",
   "version": "0.0.0",
-  "description": "An example repository to help users get started with React development on Yext Pages",
-  "author": "sumo@yext.com",
+  "description": "A basic prototype of a widgetizer UI for Yext Chat",
+  "author": "dcorbett@yext.com",
   "license": "BSD-3-Clause",
   "type": "module",
   "scripts": {
@@ -56,7 +56,7 @@
     "@types/react-dom": "^18.0.6",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
     "@typescript-eslint/parser": "^6.10.0",
-    "@yext/pages": "1.0.0-rc.4",
+    "@yext/pages": "1.0.0-rc.5",
     "autoprefixer": "^10.4.16",
     "eslint": "^8.53.0",
     "eslint-config-prettier": "^9.0.0",
