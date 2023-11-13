@@ -1,9 +1,9 @@
 import { cn } from '../utils/cn';
 
 const pages = [
-  { name: 'Chat', href: '#', current: false },
-  { name: 'Widgets', href: '#', current: false },
-  { name: 'Marketing Bot', href: '#', current: true },
+  { name: 'Bots', href: '#', current: false },
+  { name: 'Salesforce Lead Gen', href: '#', current: false },
+  { name: 'Widget', href: '#', current: true },
 ];
 
 export default function Breadcrumbs() {

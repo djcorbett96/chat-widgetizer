@@ -45,7 +45,7 @@ const Wrapper = ({ children }: WrapperProps) => {
               </div>
               <div className="text-sm flex flex-col gap-3 pl-12">
                 <span className="text-white">Deployment</span>
-                <span className="pl-2 bg-gray-800 text-white font-semibold rounded-md p-2">Widgets</span>
+                <span className="pl-2 bg-gray-800 text-white font-semibold rounded-md p-2">Widget</span>
               </div>
             </div>
             {/* <ul role="list" className="flex flex-1 flex-col gap-y-7">
