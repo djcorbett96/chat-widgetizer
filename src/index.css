@@ -53,3 +53,7 @@
 .yext-chat-pop-up__cta-label {
     color: var(--ctaLabelColor);
 }
+
+.yext-chat-input__text-area {
+    height: 57px !important;
+}
